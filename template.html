@@ -1,0 +1,10 @@
+<template id='tmpl'>
+    <p>This is a new paragraph item: <span></span></p>
+</template>
+<script>
+    var thisImportDoc = document.currentScript.ownerDocument;
+
+    var tmplNode = thisImportDoc.querySelector('#tmpl');
+
+    document.body.appendChild(tmplNode.cloneNode(true));
+</script>

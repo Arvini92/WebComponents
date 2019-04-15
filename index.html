@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./webcomponents-lite.js"></script>
+    <!-- <link rel="import" href="template.html" id="tmplFile"> -->
+    <link rel="import" href="msgbanner.html" id="tmplFile">
+</head>
+<body>
+    <div>My Text</div>
+    <div id="example"></div>
+   
+
+
+
+    <message-banner id="banner" visible>
+        <span slot="title">Hey There!</span>
+        <div class="message">This is a message banner element. Click on me!</div>
+    </message-banner>
+
+    
+
+
+
+
+
+
+
+
+
+    <button type="button" id="btnStamp">Stamp New Item</button>
+    <button type="button" id="toggleBtn">Toggle Banner</button>
+    <button type="button" id="createbtn">Create Banner</button>
+
+    <style>
+        message-banner {
+            background: cornsilk;
+            border: 1pt solid goldenrod;
+            margin: 0;
+            max-height: 400px;
+            padding: 10pt;
+            position: relative;
+            display: none;
+            top: 0;
+            right: 0;
+        }
+
+        message-banner[visible] {
+            display: block;
+        }
+    </style>
+    <script>
+        var count = 1;
+        window.addEventListener("DOMContentLoaded", e => {
+            document.getElementById("btnStamp").addEventListener("click", e => {
+                // var tmplLink = document.querySelector('#tmplFile');
+                // var tmplFile = tmplLink.import;
+                // var tmpl = tmplFile.querySelector('#tmpl');
+                // tmpl.content.querySelector("span").textContent = count++;
+
+                // var newNode = document.importNode(tmpl.content, true);
+
+                // document.getElementById("example").appendChild(newNode);
+
+                // var tmpl = document.querySelector('#banner');
+                // tmpl.querySelector("span").textContent = count++;
+                // var newNode = document.importNode(tmpl.content, true);
+                // document.getElementById("example").appendChild(newNode);
+            });
+
+            document.getElementById("toggleBtn").addEventListener("click", e => {
+                var banner = document.getElementById("banner");
+                banner.visible = !banner.visible;
+            });
+
+            document.getElementById("createbtn").addEventListener("click", e => {
+                console.log("yeee");
+               var newbanner = document.createElement("message-banner");
+               newbanner.innerHTML = "<div>Created from script!</div>";
+               newbanner.visible = true;
+               document.body.insertBefore(newbanner, document.body.firstChild);
+            });
+        });
+    </script>
+</body>
+</html>
